@@ -194,9 +194,9 @@ grouped_spending = school_data_complete.groupby('spending_bins')
 
 avg_math = grouped_spending['math_score'].mean()
 avg_read = grouped_spending['reading_score'].mean()
-pass_math = school_data_complete[school_data_complete['math_score'] >= 70].groupby('budget_bins')['Student ID'].count()/grouped_spending['Student ID'].count() * 100
-pass_read = school_data_complete[school_data_complete['reading_score'] >= 70].groupby('budget_bins')['Student ID'].count()/grouped_spending['Student ID'].count() * 100
-overall = school_data_complete[(school_data_complete['reading_score'] >= 70) & (school_data_complete['math_score'] >= 70)].groupby('budget_bins')['Student ID'].count()/grouped_spending['Student ID'].count() * 100
+pass_math = school_data_complete[school_data_complete['math_score'] >= 70].groupby('spending_bins')['Student ID'].count()/grouped_spending['Student ID'].count() * 100
+pass_read = school_data_complete[school_data_complete['reading_score'] >= 70].groupby('spending_bins')['Student ID'].count()/grouped_spending['Student ID'].count() * 100
+overall = school_data_complete[(school_data_complete['reading_score'] >= 70) & (school_data_complete['math_score'] >= 70)].groupby('spending_bins')['Student ID'].count()/grouped_spending['Student ID'].count() * 100
                      
 scores_by_spend = pd.DataFrame({
     "Average Math Score": avg_math,
